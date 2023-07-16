@@ -23,27 +23,25 @@ public class VentanaConversorTemperatura extends JPanel {
 	private JLabel lblTituloDelMenuComboBox;
 	private JLabel lblTituloCoversor;
 
-	public double valorEntrada=0.00;
-	
+	public double valorEntrada = 0.00;
+
 	public VentanaConversorTemperatura() {
 
 		setBackground(new Color(255, 128, 255));
 		setForeground(new Color(255, 0, 0));
 		setBorder(new EmptyBorder(5, 5, 5, 5));
 		setLayout(null);
-		
-		
+
 		lblTituloCoversor = new JLabel("Conversor de Temperatura");
 		lblTituloCoversor.setBounds(62, 11, 324, 36);
 		lblTituloCoversor.setFont(new Font("Segoe UI Black", Font.PLAIN, 23));
 		add(lblTituloCoversor);
-		
-		
+
 		lblEtiquedaDeEntrada = new JLabel("Ingrese la temperatura");
 		lblEtiquedaDeEntrada.setFont(new Font("Tahoma", Font.PLAIN, 13));
 		lblEtiquedaDeEntrada.setBounds(177, 68, 177, 20);
 		add(lblEtiquedaDeEntrada);
-		
+
 		textNumeroIngresado = new JTextField();
 		textNumeroIngresado.setHorizontalAlignment(SwingConstants.CENTER);
 		textNumeroIngresado.setFont(new Font("Segoe UI Black", Font.BOLD, 19));
@@ -52,18 +50,18 @@ public class VentanaConversorTemperatura extends JPanel {
 		textNumeroIngresado.setToolTipText("");
 		add(textNumeroIngresado);
 		textNumeroIngresado.setColumns(10);
-		
+
 		lblTituloDelMenuComboBox = new JLabel("Elija la  medida a convertir");
 		lblTituloDelMenuComboBox.setFont(new Font("Tahoma", Font.PLAIN, 13));
 		lblTituloDelMenuComboBox.setBounds(62, 120, 164, 25);
 		add(lblTituloDelMenuComboBox);
-		
+
 		cmbTemperaturas = new JComboBox<String>();
 		cmbTemperaturas.setModel(new DefaultComboBoxModel<String>(temperaturas));
-			
+
 		cmbTemperaturas.setBounds(30, 158, 211, 25);
 		add(cmbTemperaturas);
-		
+
 		btnConvertir = new JButton("Convertir");
 		btnConvertir.addMouseListener(new MouseAdapter() {
 			@Override
@@ -73,56 +71,56 @@ public class VentanaConversorTemperatura extends JPanel {
 		});
 		btnConvertir.setBounds(257, 156, 129, 29);
 		add(btnConvertir);
-		
-	
 
 	}
+
 	String[] temperaturas = { "grados celsius a fahrenheit", "fahrenheit a grados celsius" };
-	
 
 	public void convertir() {
-		if(validar(textNumeroIngresado.getText())) {
-			String tempe =(String)cmbTemperaturas.getSelectedItem();
-			switch (tempe){
-			case "grados celsius a fahrenheit" :
+		if (validar(textNumeroIngresado.getText())) {
+			String tempe = (String) cmbTemperaturas.getSelectedItem();
+			switch (tempe) {
+			case "grados celsius a fahrenheit":
 				celsiusAFahrenheit();
 				break;
-			case "fahrenheit a grados celsius" :
+			case "fahrenheit a grados celsius":
 				fahrenheitAcelsius();
 				break;
-				default :
-					throw new IllegalArgumentException(" Valor invalido: "+temperaturas);
-			}	
-		};
-	
+			default:
+				throw new IllegalArgumentException(" Valor invalido: " + temperaturas);
+			}
+		}
+		;
+
 	}
+
 	public void celsiusAFahrenheit() {
-		double valorSalida = (valorEntrada*9/5 +32);
+		double valorSalida = (valorEntrada * 9 / 5 + 32);
 		lblEtiquedaDeEntrada.setText(redondear(valorSalida));
-	
-		
-		
+
 	}
 
 	public void fahrenheitAcelsius() {
-		double valorSalida = ((valorEntrada-32) * 5/9);
+		double valorSalida = ((valorEntrada - 32) * 5 / 9);
 		lblEtiquedaDeEntrada.setText(redondear(valorSalida));
-		
-		
+
 	}
+
 	public String redondear(double valor) {
-		DecimalFormat df =new DecimalFormat("0.0000");
+		DecimalFormat df = new DecimalFormat("0.0000");
 		df.setRoundingMode(RoundingMode.HALF_UP);
 		return df.format(valor);
 	}
+
 	public boolean validar(String texto) {
 		try {
 			double x = Double.parseDouble(texto);
-				if (x >0);
-					valorEntrada= x;
-					return true;
-				
-		} catch(NumberFormatException e){
+			if (x > 0)
+				;
+			valorEntrada = x;
+			return true;
+
+		} catch (NumberFormatException e) {
 			lblEtiquedaDeEntrada.setText("solamente numeros");
 			return false;
 		}

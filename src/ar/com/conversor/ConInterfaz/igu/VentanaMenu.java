@@ -1,8 +1,4 @@
 package ar.com.conversor.ConInterfaz.igu;
-
-import java.awt.EventQueue;
-
-
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
@@ -23,7 +19,6 @@ public class VentanaMenu extends JFrame {
 
 	private JPanel contentPane;
 
-	
 	public VentanaMenu() {
 		setIconImage(Toolkit.getDefaultToolkit().getImage("src/logo.png"));
 		setTitle("Conversor One");
@@ -33,33 +28,32 @@ public class VentanaMenu extends JFrame {
 		this.setResizable(false);
 		JMenuBar menuBar = new JMenuBar();
 		setJMenuBar(menuBar);
-		
+
 		JMenu mnNewMenu = new JMenu("Elija una Opcion");
 		menuBar.add(mnNewMenu);
-		
+
 		JMenuItem mntmNewMenuItem_1 = new JMenuItem("Conversor de Moneda");
 		mntmNewMenuItem_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				VentanaConversorMoneda v1= new VentanaConversorMoneda();
+				VentanaConversorMoneda v1 = new VentanaConversorMoneda();
 				nuevoPanel(v1);
 			}
 		});
 		mnNewMenu.add(mntmNewMenuItem_1);
-		
+
 		JMenuItem mntmNewMenuItem = new JMenuItem("Conversor de Temperatura");
 		mntmNewMenuItem.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				VentanaConversorTemperatura v2 =new VentanaConversorTemperatura();
+				VentanaConversorTemperatura v2 = new VentanaConversorTemperatura();
 				nuevoPanel(v2);
 			}
 		});
 		mnNewMenu.add(mntmNewMenuItem);
-		
-		
+
 		JMenuItem mntmSalir = new JMenuItem("Salir");
 		mntmSalir.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				JOptionPane.showMessageDialog(null,"saliendo del programa" );
+				JOptionPane.showMessageDialog(null, "saliendo del programa");
 				System.exit(0);
 			}
 		});
@@ -69,20 +63,20 @@ public class VentanaMenu extends JFrame {
 
 		setContentPane(contentPane);
 		contentPane.setLayout(new CardLayout(0, 0));
-		
+
 		JLabel lblNewLabel = new JLabel("       Challenge One - Conversor");
 		lblNewLabel.setForeground(new Color(0, 64, 128));
 		lblNewLabel.setFont(new Font("Bradley Hand ITC", Font.BOLD, 28));
 		contentPane.add(lblNewLabel, "name_221234746536300");
 	}
-	
+
 	public void nuevoPanel(JPanel panelActual) {
 		contentPane.removeAll();
 		contentPane.add(panelActual);
 		contentPane.repaint();
 		contentPane.revalidate();
 		setContentPane(contentPane);
-		
+
 	}
 
 }
