@@ -7,25 +7,27 @@ import java.awt.Font;
 import javax.swing.SwingConstants;
 import javax.swing.JTextField;
 import java.awt.Color;
+
+
 import javax.swing.border.EmptyBorder;
 import ar.com.conversor.ConInterfaz.modelo.ConversorDeMoneda;
 import javax.swing.JComboBox;
 import javax.swing.JButton;
 import javax.swing.DefaultComboBoxModel;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
 
 public class VentanaConversorMoneda extends JPanel {
-	private static JTextField textNumeroIngresado;
+	private JTextField textNumeroIngresado;
 	private JButton btnConvertir;
 
-	private static JComboBox cmbMonedas;
-	private static JLabel lblEtiquedaDeEntrada;
-	private static JLabel lblTituloDelMenuComboBox;
-	private static JLabel lblTituloCoversor;
+	private  JComboBox cmbMonedas;
+	private JLabel lblEtiquedaDeEntrada;
+	private  JLabel lblTituloDelMenuComboBox;
+	private  JLabel lblTituloCoversor;
+	private ConversorDeMoneda convMoneda;
+	
 
 	public VentanaConversorMoneda() {
-
+		convMoneda= new ConversorDeMoneda(this);
 		setBackground(new Color(106, 106, 106));
 		setForeground(new Color(255, 0, 0));
 		setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -68,19 +70,22 @@ public class VentanaConversorMoneda extends JPanel {
 
 		btnConvertir = new JButton("Convertir");
 		btnConvertir.setForeground(new Color(106, 106, 106));
-		btnConvertir.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseClicked(MouseEvent e) {
-				ConversorDeMoneda cm = new ConversorDeMoneda();
-				cm.convertir();
-			}
-		});
+		
+		btnConvertir.addActionListener(convMoneda);
 		btnConvertir.setBounds(257, 156, 129, 29);
-		add(btnConvertir);
+		add(btnConvertir); 
 
 	}
 
-	public static JTextField getTextNumeroIngresado() {
+	public JButton getBtnConvertir() {
+		return btnConvertir;
+	}
+
+	public void setBtnConvertir(JButton btnConvertir) {
+		this.btnConvertir = btnConvertir;
+	}
+
+	public  JTextField getTextNumeroIngresado() {
 		return textNumeroIngresado;
 	}
 
@@ -88,15 +93,15 @@ public class VentanaConversorMoneda extends JPanel {
 		this.textNumeroIngresado = textNumeroIngresado;
 	}
 
-	public static JComboBox getCmbMonedas() {
+	public  JComboBox getCmbMonedas() {
 		return cmbMonedas;
 	}
 
-	public void setCmbMonedas(JComboBox cmbMonedas) {
+	public void setCmbMonedas(JComboBox<String> cmbMonedas) {
 		this.cmbMonedas = cmbMonedas;
 	}
 
-	public static JLabel getLblEtiquedaDeEntrada() {
+	public  JLabel getLblEtiquedaDeEntrada() {
 		return lblEtiquedaDeEntrada;
 	}
 
@@ -108,6 +113,8 @@ public class VentanaConversorMoneda extends JPanel {
 			"De Pesos Artentinos a Libras Esterlinas", "De Pesos Argentinos a Yen Japones",
 			"De Pesos Argentinos a Won surcoreano", "De Dolar a Pesos Argentinos", "De Euro a Pesos Argentinos",
 			"De Libras Esterlinas  a Pesos Argentinos", "De Yen Japones a Pesos Argentinos",
-			"De Won Surcoreano a Pesos Argentinos" };
+			"De Won Surcoreano a Pesos Argentinos" 
+			};
+	}
 
-}
+

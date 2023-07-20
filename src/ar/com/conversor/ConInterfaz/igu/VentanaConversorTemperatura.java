@@ -27,42 +27,48 @@ public class VentanaConversorTemperatura extends JPanel {
 
 	public VentanaConversorTemperatura() {
 
-		setBackground(new Color(255, 128, 255));
+		setBackground(new Color(0, 64, 128));
 		setForeground(new Color(255, 0, 0));
 		setBorder(new EmptyBorder(5, 5, 5, 5));
 		setLayout(null);
 
 		lblTituloCoversor = new JLabel("Conversor de Temperatura");
+		lblTituloCoversor.setForeground(new Color(255, 255, 255));
 		lblTituloCoversor.setBounds(62, 11, 324, 36);
 		lblTituloCoversor.setFont(new Font("Segoe UI Black", Font.PLAIN, 23));
 		add(lblTituloCoversor);
 
 		lblEtiquedaDeEntrada = new JLabel("Ingrese la temperatura");
+		lblEtiquedaDeEntrada.setForeground(new Color(255, 255, 255));
 		lblEtiquedaDeEntrada.setFont(new Font("Tahoma", Font.PLAIN, 13));
 		lblEtiquedaDeEntrada.setBounds(177, 68, 177, 20);
 		add(lblEtiquedaDeEntrada);
 
 		textNumeroIngresado = new JTextField();
+		textNumeroIngresado.setForeground(new Color(255, 255, 255));
 		textNumeroIngresado.setHorizontalAlignment(SwingConstants.CENTER);
 		textNumeroIngresado.setFont(new Font("Segoe UI Black", Font.BOLD, 19));
-		textNumeroIngresado.setBackground(new Color(255, 128, 255));
+		textNumeroIngresado.setBackground(new Color(0, 64, 128));
 		textNumeroIngresado.setBounds(62, 58, 97, 36);
 		textNumeroIngresado.setToolTipText("");
 		add(textNumeroIngresado);
 		textNumeroIngresado.setColumns(10);
 
-		lblTituloDelMenuComboBox = new JLabel("Elija la  medida a convertir");
+		lblTituloDelMenuComboBox = new JLabel("Elija a que  medida a convertir");
+		lblTituloDelMenuComboBox.setForeground(new Color(255, 255, 255));
 		lblTituloDelMenuComboBox.setFont(new Font("Tahoma", Font.PLAIN, 13));
-		lblTituloDelMenuComboBox.setBounds(62, 120, 164, 25);
+		lblTituloDelMenuComboBox.setBounds(136, 121, 201, 25);
 		add(lblTituloDelMenuComboBox);
 
 		cmbTemperaturas = new JComboBox<String>();
+		cmbTemperaturas.setForeground(new Color(0, 0, 128));
 		cmbTemperaturas.setModel(new DefaultComboBoxModel<String>(temperaturas));
 
 		cmbTemperaturas.setBounds(30, 158, 211, 25);
 		add(cmbTemperaturas);
 
 		btnConvertir = new JButton("Convertir");
+		btnConvertir.setForeground(new Color(0, 0, 128));
 		btnConvertir.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
@@ -96,13 +102,13 @@ public class VentanaConversorTemperatura extends JPanel {
 
 	public void celsiusAFahrenheit() {
 		double valorSalida = (valorEntrada * 9 / 5 + 32);
-		lblEtiquedaDeEntrada.setText(redondear(valorSalida));
+		lblEtiquedaDeEntrada.setText(redondear(valorSalida)+" Fahrenheit");
 
 	}
 
 	public void fahrenheitAcelsius() {
 		double valorSalida = ((valorEntrada - 32) * 5 / 9);
-		lblEtiquedaDeEntrada.setText(redondear(valorSalida));
+		lblEtiquedaDeEntrada.setText(redondear(valorSalida)+" Celsius");
 
 	}
 

@@ -26,6 +26,7 @@ public class VentanaMenu extends JFrame {
 		setBounds(100, 100, 450, 300);
 		this.setLocationRelativeTo(this);
 		this.setResizable(false);
+		
 		JMenuBar menuBar = new JMenuBar();
 		setJMenuBar(menuBar);
 
@@ -58,6 +59,7 @@ public class VentanaMenu extends JFrame {
 			}
 		});
 		mnNewMenu.add(mntmSalir);
+		
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 
