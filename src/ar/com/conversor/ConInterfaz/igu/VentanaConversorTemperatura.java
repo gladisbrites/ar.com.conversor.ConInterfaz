@@ -7,6 +7,9 @@ import javax.swing.SwingConstants;
 import javax.swing.JTextField;
 import java.awt.Color;
 import javax.swing.border.EmptyBorder;
+
+import ar.com.conversor.ConInterfaz.modelo.ConversorDeTemperatura;
+
 import javax.swing.JComboBox;
 import javax.swing.JButton;
 import javax.swing.DefaultComboBoxModel;
@@ -22,11 +25,12 @@ public class VentanaConversorTemperatura extends JPanel {
 	private JLabel lblEtiquedaDeEntrada;
 	private JLabel lblTituloDelMenuComboBox;
 	private JLabel lblTituloCoversor;
+	private ConversorDeTemperatura convTempt;
 
-	public double valorEntrada = 0.00;
+	
 
 	public VentanaConversorTemperatura() {
-
+		convTempt =new ConversorDeTemperatura(this);
 		setBackground(new Color(0, 64, 128));
 		setForeground(new Color(255, 0, 0));
 		setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -69,12 +73,13 @@ public class VentanaConversorTemperatura extends JPanel {
 
 		btnConvertir = new JButton("Convertir");
 		btnConvertir.setForeground(new Color(0, 0, 128));
-		btnConvertir.addMouseListener(new MouseAdapter() {
+		btnConvertir.addActionListener(convTempt);
+		/*btnConvertir.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				convertir();
 			}
-		});
+		});*/
 		btnConvertir.setBounds(257, 156, 129, 29);
 		add(btnConvertir);
 
@@ -82,53 +87,50 @@ public class VentanaConversorTemperatura extends JPanel {
 
 	String[] temperaturas = { "grados celsius a fahrenheit", "fahrenheit a grados celsius" };
 
-	public void convertir() {
-		if (validar(textNumeroIngresado.getText())) {
-			String tempe = (String) cmbTemperaturas.getSelectedItem();
-			switch (tempe) {
-			case "grados celsius a fahrenheit":
-				celsiusAFahrenheit();
-				break;
-			case "fahrenheit a grados celsius":
-				fahrenheitAcelsius();
-				break;
-			default:
-				throw new IllegalArgumentException(" Valor invalido: " + temperaturas);
-			}
-		}
-		;
 
+
+	public JTextField getTextNumeroIngresado() {
+		return textNumeroIngresado;
 	}
 
-	public void celsiusAFahrenheit() {
-		double valorSalida = (valorEntrada * 9 / 5 + 32);
-		lblEtiquedaDeEntrada.setText(redondear(valorSalida)+" Fahrenheit");
-
+	public void setTextNumeroIngresado(JTextField textNumeroIngresado) {
+		this.textNumeroIngresado = textNumeroIngresado;
 	}
 
-	public void fahrenheitAcelsius() {
-		double valorSalida = ((valorEntrada - 32) * 5 / 9);
-		lblEtiquedaDeEntrada.setText(redondear(valorSalida)+" Celsius");
-
+	public JButton getBtnConvertir() {
+		return btnConvertir;
 	}
 
-	public String redondear(double valor) {
-		DecimalFormat df = new DecimalFormat("0.0000");
-		df.setRoundingMode(RoundingMode.HALF_UP);
-		return df.format(valor);
+	public void setBtnConvertir(JButton btnConvertir) {
+		this.btnConvertir = btnConvertir;
 	}
 
-	public boolean validar(String texto) {
-		try {
-			double x = Double.parseDouble(texto);
-			if (x > 0)
-				;
-			valorEntrada = x;
-			return true;
-
-		} catch (NumberFormatException e) {
-			lblEtiquedaDeEntrada.setText("solamente numeros");
-			return false;
-		}
+	public JComboBox getCmbTemperaturas() {
+		return cmbTemperaturas;
 	}
+
+	public void setCmbTemperaturas(JComboBox cmbTemperaturas) {
+		this.cmbTemperaturas = cmbTemperaturas;
+	}
+
+	public JLabel getLblEtiquedaDeEntrada() {
+		return lblEtiquedaDeEntrada;
+	}
+
+	public void setLblEtiquedaDeEntrada(JLabel lblEtiquedaDeEntrada) {
+		this.lblEtiquedaDeEntrada = lblEtiquedaDeEntrada;
+	}
+
+
+	
+
+	public String[] getTemperaturas() {
+		return temperaturas;
+	}
+
+	public void setTemperaturas(String[] temperaturas) {
+		this.temperaturas = temperaturas;
+	}
+
+	
 }

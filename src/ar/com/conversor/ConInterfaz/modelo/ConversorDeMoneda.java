@@ -105,10 +105,9 @@ public class ConversorDeMoneda implements ActionListener {
 	public boolean validar(String texto) {
 		try {
 			double x = Double.parseDouble(texto);
-			if (x > 0);
-				
-			valorEntrada = x;
-			return true;
+			if (x > 0); 
+				valorEntrada = x;
+				return true;
 
 		} catch (NumberFormatException e) {
 			 vcm.getLblEtiquedaDeEntrada().setText("solamente numeros");
