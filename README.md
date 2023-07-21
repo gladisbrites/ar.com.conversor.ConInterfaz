@@ -10,7 +10,7 @@
 
 ## Índice
 
-*[Título e imagen de portada](#)
+*[Título e imagen de portada](#titulo-e-imagen-de-portada)
 
 *[Insignias](#insignias)
 
@@ -51,9 +51,8 @@
 * :newspaper: Biblioteca Swing
 
 ## Autores
-
-| [<img src="https://avatars.githubusercontent.com/u/37356058?v=4" width=115><br><sub>Gladis Brites</sub>]((https://github.com/gladisbrites)
-
+| [<img src="https://avatars.githubusercontent.com/u/37356058?v=4" width=115><br><sub>Gladis Brites</sub>](https://github.com/gladisbrites) |   |   |
+| :---: | :---: | :---: |
 <!-- Your badges -->
 [![Linkedin](https://img.shields.io/badge/-GladisBrites-blue?style=flat&logo=Linkedin&logoColor=white)](https://www.linkedin.com/in/gladis-brites-130b4a250/)
 [![Gmail](https://img.shields.io/badge/-GladisBrites-c14438?style=flat&logo=Gmail&logoColor=white)](mailto:gladisbrites83@gmail.com)
