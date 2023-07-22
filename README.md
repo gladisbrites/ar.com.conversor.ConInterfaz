@@ -51,7 +51,7 @@
 * :newspaper: Biblioteca Swing
 
 ## Autores
-[<sub>Gladis Brites</sub>](https://github.com/gladisbrites) 
+[Gladis Brites](https://github.com/gladisbrites) 
 
 <!-- Your badges -->
 [![Linkedin](https://img.shields.io/badge/-GladisBrites-blue?style=flat&logo=Linkedin&logoColor=white)](https://www.linkedin.com/in/gladis-brites-130b4a250/)
