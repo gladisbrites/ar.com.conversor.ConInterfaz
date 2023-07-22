@@ -48,7 +48,7 @@
 ### 💼  Tecnologías utilizadas <img src="https://media.giphy.com/media/WUlplcMpOCEmTGBtBW/giphy.gif" width="30">
 * JAVA 17 <code><a href = "https://www.java.com/en/"><img height="40" src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/java/java.png" alt="Java"></a></code>
   
-* :newspaper: Biblioteca Swing
+* :newspaper: Library Swing
 
 ## Autores
 [Gladis Brites](https://github.com/gladisbrites) 
